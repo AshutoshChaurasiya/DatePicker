@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class MainActivity<year, month, day> extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private TextView etDate;
 
     @Override
@@ -28,22 +28,22 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         });
     }
 
-            private void loadDatePicker() {
-                final Calendar c = Calendar.getInstance();
-                int year = c.get(Calendar.YEAR);
-                int month = c.get(Calendar.MONTH);
-                int day = c.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(this, this, year, month, day);
-                datePickerDialog.show();
+    private void loadDatePicker() {
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, this, year, month, day);
+        datePickerDialog.show();
 
-            }
+    }
 
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         String date = "Month/Day/Year : " + month + "/" + dayOfMonth + "/" + year;
         etDate.setText(date);
-
-    },year,month,day);
-    datePickerDialog.show();
+    }
 }
+
+
